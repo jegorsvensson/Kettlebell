@@ -1,0 +1,139 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --text: #1b1b1f;
+  --muted: #6b7280;
+  --accent: #4f46e5;
+  --border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  padding: 16px 24px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.toolbar h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.toolbar button,
+.toolbar label {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toolbar label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolbar input[type="file"] {
+  display: none;
+}
+
+.toolbar .meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.canvas-shell {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.canvas-surface {
+  width: 4000px;
+  height: 4000px;
+  background-image: radial-gradient(var(--border) 1px, transparent 0);
+  background-size: 40px 40px;
+  position: relative;
+}
+
+.node {
+  position: absolute;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.node.dragging {
+  cursor: grabbing;
+}
+
+.node header {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.node p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.node .file-preview {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.resize-handle {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 4px;
+  cursor: se-resize;
+}
+
+.footer {
+  padding: 12px 24px;
+  background: var(--panel);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}
